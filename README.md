@@ -33,6 +33,12 @@ Select one certification path, define a minimal content schema, and author a sho
 
 ## Status and contribution
 
-Planning scaffold only; no curriculum or supported certification version is available yet. Open an issue with the target skill and intended learner outcome before proposing a learning path. No content or code license has been selected yet.
+Planning scaffold only; no curriculum or supported certification version is available yet. Open an issue with the target skill and intended learner outcome before proposing a learning path.
 
 SysKata is independent and is not affiliated with or endorsed by Red Hat. Red Hat is a trademark of Red Hat, Inc.
+
+## License
+
+Copyright 2026 SysKata contributors.
+
+This repository, including its code, documentation, and learning content, is licensed under the [Apache License 2.0](LICENSE).
