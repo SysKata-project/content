@@ -29,13 +29,22 @@ This repository owns curriculum and challenge definitions. [Labs](https://github
 
 ## Proposed first milestone
 
-Select one certification path, define a minimal content schema, and author a short sequence ending in an assessable hands-on challenge. Validate the exercise in its target lab environment before marking it ready.
+Use OpenShift as the initial path, aligned to public DO180 and DO280 objectives. Define a minimal content schema and deliver the bounded pilot sequence with two assessable hands-on challenges. Validate the exercise in its target lab environment before marking it ready.
+
+## Implementation design
+
+- [Authoring and delivery](docs/authoring-and-delivery.md)
+- [OpenShift DO180/DO280 journey](docs/openshift-path.md)
 
 ## Status and contribution
 
-Planning scaffold only; no curriculum or supported certification version is available yet. Open an issue with the target skill and intended learner outcome before proposing a learning path.
+Planning scaffold only; the OpenShift DO180/DO280 curriculum plan is documented, but lessons and supported lab runtime versions are not yet validated. Open an issue with the target skill and intended learner outcome before proposing a learning path.
 
 SysKata is independent and is not affiliated with or endorsed by Red Hat. Red Hat is a trademark of Red Hat, Inc.
+
+## MVP implementation tracking
+
+See the [OpenShift MVP tracker](https://github.com/SysKata-project/docs/issues/1) and [cross-repository backlog](https://github.com/SysKata-project/docs/blob/main/plans/mvp-backlog.md).
 
 ## License
 
