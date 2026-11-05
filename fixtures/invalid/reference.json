@@ -1,0 +1,9 @@
+{
+  "kind": "reference",
+  "id": "reference.openshift",
+  "revision": 1,
+  "title": "OpenShift documentation",
+  "url": "http://example.com",
+  "baseline": "OpenShift 4.22",
+  "reviewed_on": "2026-11-05"
+}

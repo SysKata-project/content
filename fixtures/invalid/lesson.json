@@ -1,0 +1,24 @@
+{
+  "kind": "lesson",
+  "id": "lesson.fixture",
+  "revision": 1,
+  "title": "Fixture lesson",
+  "prerequisites": [],
+  "objectives": [],
+  "exercise_ids": [
+    "exercise.choice",
+    "exercise.order",
+    "exercise.command",
+    "exercise.lab"
+  ],
+  "estimated_minutes": 5,
+  "explanation_markdown": "Pods expose workload state.",
+  "review_prompt": "How can you inspect pods?",
+  "source": {
+    "baseline": "OpenShift 4.22",
+    "reviewed_on": "2026-11-05",
+    "reference_ids": [
+      "reference.openshift"
+    ]
+  }
+}

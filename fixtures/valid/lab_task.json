@@ -1,0 +1,64 @@
+{
+  "kind": "exercise",
+  "id": "exercise.lab",
+  "revision": 1,
+  "type": "lab_task",
+  "skill_ids": [
+    "skill.observe"
+  ],
+  "objective_ids": [
+    "objective.observe"
+  ],
+  "prompt": "Inspect pods in your assigned project.",
+  "hints": [
+    {
+      "id": "hint.resource",
+      "text": "Use the pod resource type."
+    }
+  ],
+  "source": {
+    "baseline": "OpenShift 4.22",
+    "reviewed_on": "2026-11-05",
+    "reference_ids": [
+      "reference.openshift"
+    ]
+  },
+  "assessment": {
+    "evaluator": "fixture.lab",
+    "evaluator_version": 1,
+    "completion_evidence": "trusted-lab-result",
+    "feedback": [
+      {
+        "criterion_id": "criterion.observe",
+        "misconception_code": "misconception.resource",
+        "explanation": "Inspect the resource type requested.",
+        "reference_ids": [
+          "reference.openshift"
+        ]
+      }
+    ],
+    "reveal_markdown": "Use oc get pods in the assigned project.",
+    "setup_profile": "fixture.pods",
+    "checks": [
+      {
+        "criterion_id": "criterion.observe",
+        "evaluator": "fixture.pod-ready",
+        "evaluator_version": 1,
+        "parameters": {
+          "pod": "example",
+          "ready": true
+        }
+      }
+    ]
+  },
+  "environment_profile": "fixture.project",
+  "runtime": {
+    "product": "openshift",
+    "curriculum_version": "4.22",
+    "tested_versions": [],
+    "requirements": [
+      "Assigned project; scoped learner identity"
+    ]
+  },
+  "reset_behavior": "new-generation"
+}

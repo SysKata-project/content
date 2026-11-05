@@ -1,6 +1,6 @@
 # Content authoring and delivery
 
-Status: design baseline; JSON Schema, compiler and curriculum are implementation work.
+Status: [JSON Schema and validation](content-schema.md) are implemented; compiler and curriculum remain implementation work.
 
 ## Source structure
 

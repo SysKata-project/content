@@ -13,3 +13,7 @@ kubeconfig
 *.kubeconfig
 .kube/
 .aws/
+
+# Local Python tooling
+.venv/
+__pycache__/

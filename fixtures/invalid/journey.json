@@ -1,0 +1,24 @@
+{
+  "kind": "journey",
+  "id": "journey.fixture",
+  "revision": 1,
+  "title": "Schema example only",
+  "locale": "en",
+  "prerequisites": [],
+  "unit_ids": [],
+  "source": {
+    "baseline": "OpenShift 4.22",
+    "reviewed_on": "2026-11-05",
+    "reference_ids": [
+      "reference.openshift"
+    ]
+  },
+  "runtime": {
+    "product": "openshift",
+    "curriculum_version": "4.22",
+    "tested_versions": [],
+    "requirements": [
+      "Assigned project; scoped learner identity"
+    ]
+  }
+}
