@@ -25,7 +25,7 @@ A lesson should identify its stable ID, version, target skills, prerequisites, e
 
 ## Component boundaries
 
-This repository owns curriculum and challenge definitions. [Labs](https://github.com/SysKata-project/labs) owns environment execution and assessment tooling. The [API](https://github.com/SysKata-project/api) owns learner state, and [web](https://github.com/SysKata-project/web) owns presentation. Content delivery and versioning contracts will be documented in [docs](https://github.com/SysKata-project/docs).
+This repository owns curriculum and challenge definitions. [Labs](https://github.com/SysKata-project/labs) owns environment execution and assessment tooling. The [API](https://github.com/SysKata-project/api) owns learner state, and [app](https://github.com/SysKata-project/app) owns presentation. Content delivery and versioning contracts will be documented in [docs](https://github.com/SysKata-project/docs).
 
 ## Proposed first milestone
 
