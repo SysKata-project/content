@@ -1,0 +1,47 @@
+{
+  "kind": "exercise",
+  "id": "exercise.command",
+  "revision": 1,
+  "type": "command_entry",
+  "skill_ids": [
+    "skill.observe"
+  ],
+  "objective_ids": [
+    "objective.observe"
+  ],
+  "prompt": "Inspect pods in your assigned project.",
+  "hints": [
+    {
+      "id": "hint.resource",
+      "text": "Use the pod resource type."
+    }
+  ],
+  "source": {
+    "baseline": "OpenShift 4.22",
+    "reviewed_on": "2026-11-05",
+    "reference_ids": [
+      "reference.openshift"
+    ]
+  },
+  "assessment": {
+    "evaluator": "fixture.command",
+    "evaluator_version": 1,
+    "completion_evidence": "correct-response",
+    "feedback": [
+      {
+        "criterion_id": "criterion.observe",
+        "misconception_code": "misconception.resource",
+        "explanation": "Inspect the resource type requested.",
+        "reference_ids": [
+          "reference.openshift"
+        ]
+      }
+    ],
+    "reveal_markdown": "Use oc get pods in the assigned project.",
+    "normalization": "unsafe-shell-normalization",
+    "accepted_commands": [
+      "oc get pods",
+      "oc get pod"
+    ]
+  }
+}

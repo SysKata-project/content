@@ -1,0 +1,17 @@
+{
+  "kind": "unit",
+  "id": "unit.fixture",
+  "revision": 1,
+  "title": "Fixture unit",
+  "prerequisites": [],
+  "lesson_ids": [
+    "lesson.fixture"
+  ],
+  "source": {
+    "baseline": "OpenShift 4.22",
+    "reviewed_on": "2026-11-05",
+    "reference_ids": [
+      "reference.openshift"
+    ]
+  }
+}

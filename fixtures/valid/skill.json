@@ -1,0 +1,15 @@
+{
+  "kind": "skill",
+  "id": "skill.observe",
+  "revision": 1,
+  "title": "Observe workloads",
+  "description": "Inspect workload state.",
+  "prerequisites": [],
+  "source": {
+    "baseline": "OpenShift 4.22",
+    "reviewed_on": "2026-11-05",
+    "reference_ids": [
+      "reference.openshift"
+    ]
+  }
+}

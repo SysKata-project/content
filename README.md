@@ -12,7 +12,7 @@ Original learning material for SysKata's daily practice experience, primarily fo
 
 ## Proposed lesson structure
 
-A lesson should identify its stable ID, version, target skills, prerequisites, expected duration, explanation, practice instructions, hints, assessment criteria, and review prompts. Challenges should also identify the required environment and reset behavior. The machine-readable content schema remains to be designed.
+A lesson should identify its stable ID, version, target skills, prerequisites, expected duration, explanation, practice instructions, hints, assessment criteria, and review prompts. Challenges should also identify the required environment and reset behavior. The [versioned content schema](docs/content-schema.md) defines these fields and includes executable validation and fixtures.
 
 ## Authoring principles
 
@@ -38,7 +38,7 @@ Use OpenShift as the initial path, aligned to public DO180 and DO280 objectives.
 
 ## Status and contribution
 
-Planning scaffold only; the OpenShift DO180/DO280 curriculum plan is documented, but lessons and supported lab runtime versions are not yet validated. Open an issue with the target skill and intended learner outcome before proposing a learning path.
+The content schema and validation fixtures are implemented. The OpenShift DO180/DO280 curriculum plan is documented, but lessons and supported lab runtime versions are not yet validated. Open an issue with the target skill and intended learner outcome before proposing a learning path.
 
 SysKata is independent and is not affiliated with or endorsed by Red Hat. Red Hat is a trademark of Red Hat, Inc.
 
