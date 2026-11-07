@@ -17,3 +17,6 @@ kubeconfig
 # Local Python tooling
 .venv/
 __pycache__/
+
+# Generated content bundles
+/dist/

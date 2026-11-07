@@ -1,0 +1,62 @@
+{
+  "exercise.choice": [
+    {
+      "answer": "pods",
+      "expected": true
+    },
+    {
+      "answer": "routes",
+      "expected": false
+    }
+  ],
+  "exercise.order": [
+    {
+      "answer": [
+        "inspect",
+        "diagnose"
+      ],
+      "expected": true
+    },
+    {
+      "answer": [
+        "diagnose",
+        "inspect"
+      ],
+      "expected": false
+    }
+  ],
+  "exercise.command": [
+    {
+      "answer": " oc get pods ",
+      "expected": true
+    },
+    {
+      "answer": "oc get pods; whoami",
+      "expected": false
+    },
+    {
+      "answer": "oc get \"pods\"",
+      "expected": false
+    }
+  ],
+  "exercise.lab": [
+    {
+      "answer": {
+        "criterion.observe": {
+          "pod": "example",
+          "ready": true
+        }
+      },
+      "expected": true
+    },
+    {
+      "answer": {
+        "criterion.observe": {
+          "pod": "example",
+          "ready": false
+        }
+      },
+      "expected": false
+    }
+  ]
+}

@@ -1,6 +1,8 @@
 # Content authoring and delivery
 
-Status: [JSON Schema and validation](content-schema.md) are implemented; compiler and curriculum remain implementation work.
+Status: [JSON Schema and validation](content-schema.md) and the
+[bundle compiler and publication workflow](content-bundles.md) are implemented.
+Curriculum and production lab evaluator integration remain separate work.
 
 ## Source structure
 
