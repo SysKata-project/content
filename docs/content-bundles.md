@@ -1,7 +1,8 @@
 # Immutable content bundles
 
 Implements [content #2](https://github.com/SysKata-project/content/issues/2).
-The project owner selected GitHub Releases on 2026-11-07. Repository release
+The project owner selected GitHub Releases and local publication through an
+authenticated `gh` session on 2026-11-07. Repository release
 immutability was enabled and verified on that date. There are no curriculum
 releases yet; examples under `fixtures/` remain test data.
 
@@ -37,6 +38,10 @@ reference entities, not every URL appearing in arbitrary Markdown prose. Review
 Markdown links, reference relevance, source baseline, original authorship and
 public text for accidentally disclosed answers. Do not weaken validation to pass
 a transient documentation outage; retry after the external cause is resolved.
+The authoring fixture uses the official OpenShift documentation source repository
+on GitHub because the Red Hat documentation website returned HTTP 403 both
+locally and in Actions on 2026-11-07. No HTTP failure is allowlisted; production
+references must pass the same live check and be reviewed for version relevance.
 On macOS Python installations lacking trusted roots, configure `SSL_CERT_FILE`
 to an appropriate trusted CA bundle, such as `/etc/ssl/cert.pem`; never disable TLS.
 
@@ -92,21 +97,24 @@ answer delivery, not inspection of published assessment material.
 
 ## Publish and retain
 
-After review and merge, manually run **Publish content** on `main` with the
-reviewed bundle version. This is an explicit publication action, not a side effect
-of opening or merging a PR. The workflow runs tests and history secret scanning,
-requires clean tracked source, validates references, builds in release mode and
-checks the source version against the requested version.
+After review, passing CI and merge, publish locally from a clean checkout of the
+approved commit on `main`, using the commands below. Publication is explicit,
+not a side effect of merging. No additional Actions credential is stored.
+GitHub's immutable-release settings endpoint requires administration-read access,
+which the standard Actions token lacks; the local authenticated operator needs
+that permission plus contents-write. See the [GitHub REST contract](https://docs.github.com/en/rest/repos/repos#check-if-immutable-releases-are-enabled-for-a-repository).
+Run the tests and full-history secret scan before publishing. The compiler
+requires clean tracked inputs and validates references in release mode.
 
 The publisher rebuilds the artifacts from the clean checkout before publishing,
 requires source ancestry on `main`, checks immutable-release settings and reads
 the complete release registry and matching tags. Any existing version, including
 a draft or orphaned tag, is rejected. Network/authentication failures fail closed.
-It uploads all three assets to a new draft `content-v<version>`, then publishes
-and verifies GitHub's `immutable` flag. Publication runs serially and never uses
-force, clobber, delete or asset-replacement operations.
+It atomically reserves a new Git tag so concurrent publishers cannot reuse the
+version, then uploads all three assets to a new draft `content-v<version>`, then publishes
+and verifies GitHub's `immutable` flag. Publication never uses force, clobber, delete or asset-replacement operations.
 
-If publication fails, inspect the draft/tag and workflow log. Do not overwrite
+If publication fails, inspect the draft/tag and command output. Do not overwrite
 or automatically remove the partial release; use a new version after correcting
 the cause. A published release is not rolled back by deletion. Retain all versions
 needed by sessions and results. Administrators must keep immutability enabled
@@ -156,6 +164,14 @@ and an explicit progress migration decision.
 Unit tests cover deterministic builds, YAML/Markdown failures, answer separation,
 assessment outcomes, capabilities, hash tampering, exclusive output creation,
 HTTP failure behavior and simulated GitHub publication. Tests publish no releases.
-The first real publication requires reviewed curriculum and validates GitHub
-Actions token permissions and end-to-end release retrieval. No production
+The first real publication requires reviewed curriculum and validates end-to-end
+release upload and retrieval. No production
 curriculum or lab runtime evidence is invented by this tooling issue.
+
+Validation on 2026-11-07: all 33 tests passed locally with Python 3.13, along with
+catalog validation, generated artifact hash verification, local Markdown links,
+whitespace and full-history secret scanning. Reference checks passed using the
+system CA bundle after selecting the reachable official source for the fixture.
+No new branch protection rule was configured (`main` reported no classic branch
+protection); reviewers must check CI before merge. Publication tests use simulated
+GitHub responses; no test or curriculum release was published.

@@ -34,8 +34,8 @@ Unknown fields and exercise variants fail validation.
 
 YAML metadata and Markdown prose remain the authoring baseline. JSON fixtures
 represent the data model after YAML parsing; the [compiler](content-bundles.md)
-provides YAML loading and confined Markdown file resolution. Markdown fields here hold text, not
-filesystem paths. Never execute authored command strings during validation.
+provides YAML loading and confined Markdown file resolution. Markdown fields
+here hold text, not filesystem paths. Never execute authored command strings during validation.
 
 | Definition | Relationships and required metadata |
 | --- | --- |

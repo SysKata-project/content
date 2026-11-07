@@ -44,13 +44,17 @@ def publish(directory, expected_manifest_hash):
     refs = json.loads(gh('api', api + '/git/matching-refs/tags/' + tag))
     if any(ref['ref'] == 'refs/tags/' + tag for ref in refs):
         raise ValueError('bundle tag already exists')
-    # Only reviewed/merged source may be released, even if run outside Actions.
+    # Only source merged into main may be released.
     comparison = json.loads(gh('api', api + '/compare/' + manifest['source_commit'] + '...main'))
     if comparison['status'] not in ('ahead', 'identical'):
         raise ValueError('source commit is not on main')
+    # Git ref creation is atomic: only one publisher can reserve this version.
+    gh('api', '--method', 'POST', api + '/git/refs',
+       '--raw-field', 'ref=refs/tags/' + tag,
+       '--raw-field', 'sha=' + manifest['source_commit'])
     files = [str(directory / name) for name in ('learner.json', 'assessment.json', 'manifest.json')]
     gh('release', 'create', tag, *files, '--repo', REPOSITORY, '--draft',
-       '--target', manifest['source_commit'], '--title', 'Content ' + version,
+       '--verify-tag', '--title', 'Content ' + version,
        '--notes', 'Immutable content bundle. Manifest SHA-256: ' + expected_manifest_hash)
     # Upload completion precedes publication, because immutable assets lock then.
     gh('release', 'edit', tag, '--repo', REPOSITORY, '--draft=false', '--latest=false')

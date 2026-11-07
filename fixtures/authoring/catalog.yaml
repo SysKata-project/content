@@ -4,8 +4,8 @@ entities:
 - kind: reference
   id: reference.openshift
   revision: 1
-  title: OpenShift documentation
-  url: https://docs.redhat.com/en/documentation/openshift_container_platform
+  title: OpenShift documentation source
+  url: https://github.com/openshift/openshift-docs
   baseline: OpenShift 4.22
   reviewed_on: '2026-11-05'
 - kind: skill

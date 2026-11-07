@@ -230,14 +230,15 @@ class BundleTests(unittest.TestCase):
             directory = Path(tmp) / 'release'
             write_bundle(files, directory)
             with patch('scripts.publish_bundle.gh', side_effect=[
-                    '{"enabled":true}', '[[]]', '[]', '{"status":"ahead"}', '', '',
+                    '{"enabled":true}', '[[]]', '[]', '{"status":"ahead"}', '', '', '',
                     '{"immutable":true,"draft":false,"html_url":"https://example.com/release"}']) as gh:
                 publish(directory, digest(files['manifest.json']))
-                create = gh.call_args_list[4].args
+                self.assertIn('/git/refs', gh.call_args_list[4].args[3])
+                create = gh.call_args_list[5].args
                 self.assertEqual(('release', 'create', 'content-v0.1.0'), create[:3])
                 self.assertIn('--draft', create)
                 self.assertNotIn('--clobber', create)
-                self.assertEqual(('release', 'edit'), gh.call_args_list[5].args[:2])
+                self.assertEqual(('release', 'edit'), gh.call_args_list[6].args[:2])
 
 
 if __name__ == '__main__':
