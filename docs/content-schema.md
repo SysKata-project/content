@@ -1,9 +1,9 @@
 # Content schema 1.0.0
 
 Implements [content #1](https://github.com/SysKata-project/content/issues/1).
-This is a schema and validation contract, not released curriculum or a bundle
-compiler. Publication, manifests, hashes and evaluator capability negotiation
-remain in [content #2](https://github.com/SysKata-project/content/issues/2).
+This is a schema and validation contract, not released curriculum.
+The [bundle compiler](content-bundles.md) implements publication, manifests,
+hashes and evaluator requirements for content #2.
 
 ## Validate locally
 
@@ -33,8 +33,8 @@ validates a catalog containing `schema_version`, `bundle_version`, and `entities
 Unknown fields and exercise variants fail validation.
 
 YAML metadata and Markdown prose remain the authoring baseline. JSON fixtures
-represent the data model after YAML parsing; the YAML loader and Markdown file
-resolution belong to the compiler issue. Markdown fields here hold text, not
+represent the data model after YAML parsing; the [compiler](content-bundles.md)
+provides YAML loading and confined Markdown file resolution. Markdown fields here hold text, not
 filesystem paths. Never execute authored command strings during validation.
 
 | Definition | Relationships and required metadata |
@@ -145,9 +145,10 @@ uncovered objectives, and incomplete lab feedback. Projection tests check
 answer exclusion and copy isolation; command tests cover quoting, flags,
 operators, whitespace and controls.
 
-Real evaluator execution, curriculum link freshness, YAML loading, artifact
-publication and OpenShift runtime testing are outside this issue. Before
-release, the compiler and labs issues must supply those checks and evidence.
+The compiler now validates YAML, reference URL availability, local assessment
+fixtures and artifact integrity. Real lab evaluator execution and OpenShift
+runtime evidence still belong to the labs implementation; production lab
+release remains gated on that integration.
 
 Local validation on 2026-11-05: all 16 tests passed with Python 3.13.0;
 the connected catalog validated; local documentation links, whitespace and
