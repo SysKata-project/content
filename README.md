@@ -34,11 +34,13 @@ Use OpenShift as the initial path, aligned to public DO180 and DO280 objectives.
 ## Implementation design
 
 - [Authoring and delivery](docs/authoring-and-delivery.md)
+- [Compile, publish and package immutable bundles](docs/content-bundles.md)
 - [OpenShift DO180/DO280 journey](docs/openshift-path.md)
 
 ## Status and contribution
 
-The content schema and validation fixtures are implemented. The OpenShift DO180/DO280 curriculum plan is documented, but lessons and supported lab runtime versions are not yet validated. Open an issue with the target skill and intended learner outcome before proposing a learning path.
+The content schema, validation fixtures, YAML/Markdown compiler and immutable
+GitHub Release workflow are implemented. No curriculum bundle has been released. The OpenShift DO180/DO280 curriculum plan is documented, but lessons and supported lab runtime versions are not yet validated. Open an issue with the target skill and intended learner outcome before proposing a learning path.
 
 SysKata is independent and is not affiliated with or endorsed by Red Hat. Red Hat is a trademark of Red Hat, Inc.
 

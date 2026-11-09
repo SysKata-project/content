@@ -1,0 +1,1 @@
+Pods expose workload state.
