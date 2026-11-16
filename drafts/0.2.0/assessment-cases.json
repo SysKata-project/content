@@ -1,0 +1,313 @@
+{
+  "oc-orientation.scope": [
+    {
+      "answer": "scope",
+      "expected": true
+    },
+    {
+      "answer": "recreate",
+      "expected": false
+    },
+    {
+      "answer": "global",
+      "expected": false
+    }
+  ],
+  "oc-orientation.project": [
+    {
+      "answer": "oc project -q",
+      "expected": true
+    },
+    {
+      "answer": " oc project -q ",
+      "expected": true
+    },
+    {
+      "answer": "oc whoami",
+      "expected": false
+    },
+    {
+      "answer": "oc get projects",
+      "expected": false
+    },
+    {
+      "answer": "oc project practice-a",
+      "expected": false
+    }
+  ],
+  "oc-orientation.boundary": [
+    {
+      "answer": "deployment",
+      "expected": true
+    },
+    {
+      "answer": "node",
+      "expected": false
+    },
+    {
+      "answer": "role",
+      "expected": false
+    }
+  ],
+  "oc-orientation.safe-context": [
+    {
+      "answer": [
+        "read",
+        "select",
+        "inspect"
+      ],
+      "expected": true
+    },
+    {
+      "answer": [
+        "inspect",
+        "select",
+        "read"
+      ],
+      "expected": false
+    },
+    {
+      "answer": [
+        "read",
+        "select"
+      ],
+      "expected": false
+    }
+  ],
+  "oc-observe.pods": [
+    {
+      "answer": "oc get pods",
+      "expected": true
+    },
+    {
+      "answer": "oc get pod",
+      "expected": true
+    },
+    {
+      "answer": " oc get pods ",
+      "expected": true
+    },
+    {
+      "answer": "oc get routes",
+      "expected": false
+    },
+    {
+      "answer": "oc get pods -A",
+      "expected": false
+    },
+    {
+      "answer": "oc get pods; whoami",
+      "expected": false
+    }
+  ],
+  "oc-observe.image": [
+    {
+      "answer": "image",
+      "expected": true
+    },
+    {
+      "answer": "route",
+      "expected": false
+    },
+    {
+      "answer": "delete",
+      "expected": false
+    }
+  ],
+  "oc-observe.events": [
+    {
+      "answer": "oc describe pod web-example",
+      "expected": true
+    },
+    {
+      "answer": " oc describe pod web-example ",
+      "expected": true
+    },
+    {
+      "answer": "oc logs web-example",
+      "expected": false
+    },
+    {
+      "answer": "oc get pod web-example",
+      "expected": false
+    },
+    {
+      "answer": "oc describe node web-example",
+      "expected": false
+    }
+  ],
+  "oc-observe.readiness": [
+    {
+      "answer": "inspect",
+      "expected": true
+    },
+    {
+      "answer": "healthy",
+      "expected": false
+    },
+    {
+      "answer": "route",
+      "expected": false
+    }
+  ],
+  "oc-workloads.desired-state": [
+    {
+      "answer": "replace",
+      "expected": true
+    },
+    {
+      "answer": "stop",
+      "expected": false
+    },
+    {
+      "answer": "image",
+      "expected": false
+    }
+  ],
+  "oc-workloads.rollout": [
+    {
+      "answer": "oc rollout status deployment/web --timeout=60s",
+      "expected": true
+    },
+    {
+      "answer": " oc rollout status deployment/web --timeout=60s ",
+      "expected": true
+    },
+    {
+      "answer": "oc rollout restart deployment/web",
+      "expected": false
+    },
+    {
+      "answer": "oc get pods",
+      "expected": false
+    },
+    {
+      "answer": "oc rollout status deployment/web --timeout=0s",
+      "expected": false
+    }
+  ],
+  "oc-workloads.repair": [
+    {
+      "answer": [
+        "events",
+        "compare",
+        "repair",
+        "verify"
+      ],
+      "expected": true
+    },
+    {
+      "answer": [
+        "verify",
+        "repair",
+        "compare",
+        "events"
+      ],
+      "expected": false
+    },
+    {
+      "answer": [
+        "events",
+        "compare",
+        "repair"
+      ],
+      "expected": false
+    }
+  ],
+  "oc-workloads.availability": [
+    {
+      "answer": "no",
+      "expected": true
+    },
+    {
+      "answer": "yes",
+      "expected": false
+    },
+    {
+      "answer": "route",
+      "expected": false
+    }
+  ],
+  "oc-network.selector": [
+    {
+      "answer": "selector",
+      "expected": true
+    },
+    {
+      "answer": "name",
+      "expected": false
+    },
+    {
+      "answer": "dns",
+      "expected": false
+    }
+  ],
+  "oc-network.request-path": [
+    {
+      "answer": [
+        "router",
+        "route",
+        "service",
+        "pod"
+      ],
+      "expected": true
+    },
+    {
+      "answer": [
+        "pod",
+        "service",
+        "route",
+        "router"
+      ],
+      "expected": false
+    },
+    {
+      "answer": [
+        "router",
+        "route",
+        "service"
+      ],
+      "expected": false
+    }
+  ],
+  "oc-network.inspect-service": [
+    {
+      "answer": "oc describe service web",
+      "expected": true
+    },
+    {
+      "answer": "oc describe svc web",
+      "expected": true
+    },
+    {
+      "answer": " oc describe service web ",
+      "expected": true
+    },
+    {
+      "answer": "oc describe deployment web",
+      "expected": false
+    },
+    {
+      "answer": "oc get route web",
+      "expected": false
+    },
+    {
+      "answer": "oc expose deployment web",
+      "expected": false
+    }
+  ],
+  "oc-network.route-proof": [
+    {
+      "answer": "request",
+      "expected": true
+    },
+    {
+      "answer": "exists",
+      "expected": false
+    },
+    {
+      "answer": "replicas",
+      "expected": false
+    }
+  ]
+}

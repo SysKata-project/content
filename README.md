@@ -37,6 +37,7 @@ Use OpenShift as the initial path, aligned to public DO180 and DO280 objectives.
 - [Compile, publish and package immutable bundles](docs/content-bundles.md)
 - [OpenShift DO180/DO280 journey](docs/openshift-path.md)
 - [Public objective coverage and planned gaps](docs/openshift-objectives.md)
+- [Foundations lessons and checkpoint draft](drafts/0.2.0/README.md)
 
 ## Status and contribution
 

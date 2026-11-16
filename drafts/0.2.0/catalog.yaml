@@ -1,0 +1,727 @@
+schema_version: 1.0.0
+bundle_version: 0.2.0
+entities:
+- kind: reference
+  id: reference.oc.cli
+  revision: 1
+  title: OpenShift 4.22 developer commands
+  url: https://github.com/openshift/openshift-docs/blob/enterprise-4.22/cli_reference/openshift_cli/developer-cli-commands.adoc
+  baseline: OpenShift 4.22
+  reviewed_on: '2026-11-16'
+- kind: reference
+  id: reference.oc.pods
+  revision: 1
+  title: OpenShift 4.22 pod inspection
+  url: https://github.com/openshift/openshift-docs/blob/enterprise-4.22/nodes/pods/nodes-pods-viewing.adoc
+  baseline: OpenShift 4.22
+  reviewed_on: '2026-11-16'
+- kind: reference
+  id: reference.oc.deployments
+  revision: 1
+  title: OpenShift 4.22 deployments
+  url: https://github.com/openshift/openshift-docs/blob/enterprise-4.22/applications/deployments/what-deployments-are.adoc
+  baseline: OpenShift 4.22
+  reviewed_on: '2026-11-16'
+- kind: reference
+  id: reference.oc.routes
+  revision: 1
+  title: OpenShift 4.22 secure routes
+  url: https://github.com/openshift/openshift-docs/blob/enterprise-4.22/networking/ingress_load_balancing/routes/securing-routes.adoc
+  baseline: OpenShift 4.22
+  reviewed_on: '2026-11-16'
+- kind: journey
+  id: journey.openshift
+  revision: 1
+  title: 'OpenShift pilot: foundations draft'
+  locale: en
+  prerequisites: []
+  unit_ids:
+  - unit.oc-foundations
+  source:
+    baseline: OpenShift 4.22
+    reviewed_on: '2026-11-16'
+    reference_ids:
+    - reference.oc.cli
+  runtime:
+    product: openshift
+    curriculum_version: '4.22'
+    tested_versions: []
+    requirements:
+    - Bash basics and container image/process concepts
+    - Assigned project and scoped expiring learner identity; no cluster-admin
+    - OpenShift 4.22 checkpoint runtime validation pending
+- kind: unit
+  id: unit.oc-foundations
+  revision: 1
+  title: Foundations
+  prerequisites: []
+  lesson_ids:
+  - oc-orientation
+  - oc-observe
+  - oc-workloads
+  - oc-network
+  source:
+    baseline: OpenShift 4.22
+    reviewed_on: '2026-11-16'
+    reference_ids:
+    - reference.oc.cli
+- kind: skill
+  id: skill.oc.context
+  revision: 1
+  title: Find your project
+  description: Identify the active project and distinguish project-scoped resources.
+  prerequisites: []
+  source:
+    baseline: OpenShift 4.22
+    reviewed_on: '2026-11-16'
+    reference_ids:
+    - reference.oc.cli
+- kind: lesson
+  id: oc-orientation
+  revision: 1
+  title: Find your project
+  prerequisites: []
+  objectives:
+  - id: objective.oc-orientation
+    description: Identify the active project and distinguish project-scoped resources.
+    skill_ids: &id001
+    - skill.oc.context
+  exercise_ids:
+  - oc-orientation.scope
+  - oc-orientation.project
+  - oc-orientation.boundary
+  - oc-orientation.safe-context
+  estimated_minutes: 8
+  explanation_markdown: !markdown oc-orientation.md
+  review_prompt: Identify the active project and distinguish project-scoped resources. Explain the evidence
+    you would collect before making a change.
+  source: &id002
+    baseline: OpenShift 4.22
+    reviewed_on: '2026-11-16'
+    reference_ids: &id003
+    - reference.oc.cli
+- kind: skill
+  id: skill.oc.observe
+  revision: 1
+  title: Explain a workload symptom
+  description: Use workload state, events and logs to support a diagnosis.
+  prerequisites:
+  - skill.oc.context
+  source:
+    baseline: OpenShift 4.22
+    reviewed_on: '2026-11-16'
+    reference_ids:
+    - reference.oc.pods
+- kind: lesson
+  id: oc-observe
+  revision: 1
+  title: Explain a workload symptom
+  prerequisites:
+  - oc-orientation
+  objectives:
+  - id: objective.oc-observe
+    description: Use workload state, events and logs to support a diagnosis.
+    skill_ids: &id004
+    - skill.oc.observe
+  exercise_ids:
+  - oc-observe.pods
+  - oc-observe.image
+  - oc-observe.events
+  - oc-observe.readiness
+  estimated_minutes: 10
+  explanation_markdown: !markdown oc-observe.md
+  review_prompt: Use workload state, events and logs to support a diagnosis. Explain the evidence you
+    would collect before making a change.
+  source: &id005
+    baseline: OpenShift 4.22
+    reviewed_on: '2026-11-16'
+    reference_ids: &id006
+    - reference.oc.pods
+- kind: skill
+  id: skill.oc.rollout
+  revision: 1
+  title: Deploy and repair a workload
+  description: Identify a failed rollout and select a repair that restores the desired workload.
+  prerequisites:
+  - skill.oc.observe
+  source:
+    baseline: OpenShift 4.22
+    reviewed_on: '2026-11-16'
+    reference_ids:
+    - reference.oc.deployments
+- kind: lesson
+  id: oc-workloads
+  revision: 1
+  title: Deploy and repair a workload
+  prerequisites:
+  - oc-observe
+  objectives:
+  - id: objective.oc-workloads
+    description: Identify a failed rollout and select a repair that restores the desired workload.
+    skill_ids: &id007
+    - skill.oc.rollout
+  exercise_ids:
+  - oc-workloads.desired-state
+  - oc-workloads.rollout
+  - oc-workloads.repair
+  - oc-workloads.availability
+  estimated_minutes: 12
+  explanation_markdown: !markdown oc-workloads.md
+  review_prompt: Identify a failed rollout and select a repair that restores the desired workload. Explain
+    the evidence you would collect before making a change.
+  source: &id008
+    baseline: OpenShift 4.22
+    reviewed_on: '2026-11-16'
+    reference_ids: &id009
+    - reference.oc.deployments
+- kind: skill
+  id: skill.oc.reachability
+  revision: 1
+  title: Connect a Service and Route
+  description: Trace a request through a Route and Service to a ready application pod.
+  prerequisites:
+  - skill.oc.rollout
+  source:
+    baseline: OpenShift 4.22
+    reviewed_on: '2026-11-16'
+    reference_ids:
+    - reference.oc.routes
+- kind: lesson
+  id: oc-network
+  revision: 1
+  title: Connect a Service and Route
+  prerequisites:
+  - oc-workloads
+  objectives:
+  - id: objective.oc-network
+    description: Trace a request through a Route and Service to a ready application pod.
+    skill_ids: &id010
+    - skill.oc.reachability
+  exercise_ids:
+  - oc-network.selector
+  - oc-network.request-path
+  - oc-network.inspect-service
+  - oc-network.route-proof
+  estimated_minutes: 10
+  explanation_markdown: !markdown oc-network.md
+  review_prompt: Trace a request through a Route and Service to a ready application pod. Explain the evidence
+    you would collect before making a change.
+  source: &id011
+    baseline: OpenShift 4.22
+    reviewed_on: '2026-11-16'
+    reference_ids: &id012
+    - reference.oc.routes
+- kind: exercise
+  id: oc-orientation.scope
+  revision: 1
+  type: single_choice
+  skill_ids: *id001
+  objective_ids:
+  - objective.oc-orientation
+  prompt: Your lab assigns project practice-a. You see no pods after switching to practice-b. What should
+    you check first?
+  hints:
+  - id: hint.reason
+    text: An empty list describes one selected scope.
+  source: *id002
+  assessment:
+    evaluator: choice.exact
+    evaluator_version: 1
+    completion_evidence: correct-response
+    feedback:
+    - criterion_id: criterion.scope
+      misconception_code: misconception.empty-means-absent
+      explanation: Check the active project against the assigned project before concluding that the application
+        is missing.
+      reference_ids: *id003
+    correct_option_id: scope
+    reveal_markdown: Check the active project against the assigned project before concluding that the
+      application is missing.
+  options:
+  - id: scope
+    text: Check the active project
+  - id: recreate
+    text: Create another application immediately
+  - id: global
+    text: Request cluster-admin to list everything
+- kind: exercise
+  id: oc-orientation.project
+  revision: 1
+  type: command_entry
+  skill_ids: *id001
+  objective_ids:
+  - objective.oc-orientation
+  prompt: Print the current project name using oc project and its short-output flag. Enter only the requested
+    command; this exercise uses literal spelling and spacing, with leading/trailing spaces ignored.
+  hints:
+  - id: hint.reason
+    text: The short flag is -q.
+  source: *id002
+  assessment:
+    evaluator: command.literal
+    evaluator_version: 1
+    completion_evidence: correct-response
+    feedback:
+    - criterion_id: criterion.project
+      misconception_code: misconception.identity-is-context
+      explanation: The current project controls default namespace scope; the login identity is a different
+        fact.
+      reference_ids: *id003
+    normalization: literal-command-v1
+    accepted_commands:
+    - oc project -q
+    reveal_markdown: Use `oc project -q`. The current project controls default namespace scope; the login
+      identity is a different fact.
+- kind: exercise
+  id: oc-orientation.boundary
+  revision: 1
+  type: single_choice
+  skill_ids: *id001
+  objective_ids:
+  - objective.oc-orientation
+  prompt: Which resource is scoped to a learner project?
+  hints:
+  - id: hint.reason
+    text: A project groups application resources; nodes are shared infrastructure.
+  source: *id002
+  assessment:
+    evaluator: choice.exact
+    evaluator_version: 1
+    completion_evidence: correct-response
+    feedback:
+    - criterion_id: criterion.boundary
+      misconception_code: misconception.namespace-is-cluster
+      explanation: A Deployment belongs to a namespace. A Node and ClusterRole are cluster-scoped resources.
+      reference_ids: *id003
+    correct_option_id: deployment
+    reveal_markdown: A Deployment belongs to a namespace. A Node and ClusterRole are cluster-scoped resources.
+  options:
+  - id: deployment
+    text: Deployment
+  - id: node
+    text: Node
+  - id: role
+    text: ClusterRole
+- kind: exercise
+  id: oc-orientation.safe-context
+  revision: 1
+  type: command_order
+  skill_ids: *id001
+  objective_ids:
+  - objective.oc-orientation
+  prompt: You are assigned practice-a but your CLI points elsewhere. Order this safe inspection workflow.
+  hints:
+  - id: hint.reason
+    text: Confirm the assignment before switching scope.
+  source: *id002
+  assessment:
+    evaluator: order.exact
+    evaluator_version: 1
+    completion_evidence: correct-response
+    feedback:
+    - criterion_id: criterion.safe-context
+      misconception_code: misconception.change-before-context
+      explanation: Read the assigned project, select that project, then inspect its pods.
+      reference_ids: *id003
+    correct_order:
+    - read
+    - select
+    - inspect
+    reveal_markdown: Read the assigned project, select that project, then inspect its pods.
+  steps:
+  - id: inspect
+    text: Run oc get pods
+  - id: select
+    text: Run oc project practice-a
+  - id: read
+    text: Read the project name supplied by the authenticated lab session
+- kind: exercise
+  id: oc-observe.pods
+  revision: 1
+  type: command_entry
+  skill_ids: *id004
+  objective_ids:
+  - objective.oc-observe
+  prompt: List pods in the current project using oc get, with no flags. Enter only the requested command;
+    this exercise uses literal spelling and spacing, with leading/trailing spaces ignored.
+  hints:
+  - id: hint.reason
+    text: The resource can be spelled pod or pods.
+  source: *id005
+  assessment:
+    evaluator: command.literal
+    evaluator_version: 1
+    completion_evidence: correct-response
+    feedback:
+    - criterion_id: criterion.pods
+      misconception_code: misconception.inspect-wrong-resource
+      explanation: Pod listings summarize readiness, status and restarts; a Route listing does not describe
+        container health.
+      reference_ids: *id006
+    normalization: literal-command-v1
+    accepted_commands:
+    - oc get pods
+    - oc get pod
+    reveal_markdown: Use `oc get pods`. Pod listings summarize readiness, status and restarts; a Route
+      listing does not describe container health.
+- kind: exercise
+  id: oc-observe.image
+  revision: 1
+  type: single_choice
+  skill_ids: *id004
+  objective_ids:
+  - objective.oc-observe
+  prompt: A pod reports ImagePullBackOff. Its events report that the specified image tag does not exist.
+    Which next step fits that evidence?
+  hints:
+  - id: hint.reason
+    text: Use the specific event, not the status word alone.
+  source: *id005
+  assessment:
+    evaluator: choice.exact
+    evaluator_version: 1
+    completion_evidence: correct-response
+    feedback:
+    - criterion_id: criterion.image
+      misconception_code: misconception.route-fixes-image
+      explanation: Compare the Deployment image reference with the supplied approved image. Changing a
+        Route cannot repair an image pull.
+      reference_ids: *id006
+    correct_option_id: image
+    reveal_markdown: Compare the Deployment image reference with the supplied approved image. Changing
+      a Route cannot repair an image pull.
+  options:
+  - id: image
+    text: Check and correct the Deployment image reference
+  - id: route
+    text: Change the Route hostname
+  - id: delete
+    text: Delete the project
+- kind: exercise
+  id: oc-observe.events
+  revision: 1
+  type: command_entry
+  skill_ids: *id004
+  objective_ids:
+  - objective.oc-observe
+  prompt: Show detailed state and recent events for the pod named web-example in the current project.
+    Use oc describe pod with no flags. Enter only the requested command; this exercise uses literal spelling
+    and spacing, with leading/trailing spaces ignored.
+  hints:
+  - id: hint.reason
+    text: Describe the named pod rather than listing Routes.
+  source: *id005
+  assessment:
+    evaluator: command.literal
+    evaluator_version: 1
+    completion_evidence: correct-response
+    feedback:
+    - criterion_id: criterion.events
+      misconception_code: misconception.logs-replace-events
+      explanation: Describe shows pod conditions and events. Logs may be unavailable if the container
+        never started.
+      reference_ids: *id006
+    normalization: literal-command-v1
+    accepted_commands:
+    - oc describe pod web-example
+    reveal_markdown: Use `oc describe pod web-example`. Describe shows pod conditions and events. Logs
+      may be unavailable if the container never started.
+- kind: exercise
+  id: oc-observe.readiness
+  revision: 1
+  type: single_choice
+  skill_ids: *id004
+  objective_ids:
+  - objective.oc-observe
+  prompt: A pod is Running with READY 0/1. What can you conclude?
+  hints:
+  - id: hint.reason
+    text: Lifecycle phase and readiness answer different questions.
+  source: *id005
+  assessment:
+    evaluator: choice.exact
+    evaluator_version: 1
+    completion_evidence: correct-response
+    feedback:
+    - criterion_id: criterion.readiness
+      misconception_code: misconception.running-is-ready
+      explanation: Running does not establish readiness. Inspect readiness failures before treating the
+        application as ready for Service traffic.
+      reference_ids: *id006
+    correct_option_id: inspect
+    reveal_markdown: Running does not establish readiness. Inspect readiness failures before treating
+      the application as ready for Service traffic.
+  options:
+  - id: inspect
+    text: It has not demonstrated readiness; inspect its conditions and events
+  - id: healthy
+    text: It is ready because it is Running
+  - id: route
+    text: The Route must be healthy
+- kind: exercise
+  id: oc-workloads.desired-state
+  revision: 1
+  type: single_choice
+  skill_ids: *id007
+  objective_ids:
+  - objective.oc-workloads
+  prompt: You delete a pod owned by a Deployment whose desired replica count is one. What normally happens?
+  hints:
+  - id: hint.reason
+    text: Controllers reconcile actual state toward desired state.
+  source: *id008
+  assessment:
+    evaluator: choice.exact
+    evaluator_version: 1
+    completion_evidence: correct-response
+    feedback:
+    - criterion_id: criterion.desired-state
+      misconception_code: misconception.pod-deletion-repairs-template
+      explanation: The controller creates a replacement. A bad pod template will still affect new pods
+        until the Deployment template is repaired.
+      reference_ids: *id009
+    correct_option_id: replace
+    reveal_markdown: The controller creates a replacement. A bad pod template will still affect new pods
+      until the Deployment template is repaired.
+  options:
+  - id: replace
+    text: A replacement pod is created to satisfy desired state
+  - id: stop
+    text: The Deployment is permanently stopped
+  - id: image
+    text: The controller automatically chooses a different image
+- kind: exercise
+  id: oc-workloads.rollout
+  revision: 1
+  type: command_entry
+  skill_ids: *id007
+  objective_ids:
+  - objective.oc-workloads
+  prompt: Wait at most 60 seconds for the web Deployment rollout. Use oc rollout status deployment/web
+    and --timeout=60s. Enter only the requested command; this exercise uses literal spelling and spacing,
+    with leading/trailing spaces ignored.
+  hints:
+  - id: hint.reason
+    text: Use status rather than restarting the workload.
+  source: *id008
+  assessment:
+    evaluator: command.literal
+    evaluator_version: 1
+    completion_evidence: correct-response
+    feedback:
+    - criterion_id: criterion.rollout
+      misconception_code: misconception.mutation-is-verification
+      explanation: Rollout status observes progress; it does not modify the pod template. A timeout needs
+        diagnosis, not a success claim.
+      reference_ids: *id009
+    normalization: literal-command-v1
+    accepted_commands:
+    - oc rollout status deployment/web --timeout=60s
+    reveal_markdown: Use `oc rollout status deployment/web --timeout=60s`. Rollout status observes progress;
+      it does not modify the pod template. A timeout needs diagnosis, not a success claim.
+- kind: exercise
+  id: oc-workloads.repair
+  revision: 1
+  type: command_order
+  skill_ids: *id007
+  objective_ids:
+  - objective.oc-workloads
+  prompt: The trusted checkpoint records an invalid image in a new rollout. Order this diagnosis and repair
+    workflow.
+  hints:
+  - id: hint.reason
+    text: Collect evidence before changing the template and verify afterward.
+  source: *id008
+  assessment:
+    evaluator: order.exact
+    evaluator_version: 1
+    completion_evidence: correct-response
+    feedback:
+    - criterion_id: criterion.repair
+      misconception_code: misconception.blind-restart
+      explanation: Inspect events, compare the image with the supplied working version, repair the Deployment
+        template, then verify the new rollout.
+      reference_ids: *id009
+    correct_order:
+    - events
+    - compare
+    - repair
+    - verify
+    reveal_markdown: Inspect events, compare the image with the supplied working version, repair the Deployment
+      template, then verify the new rollout.
+  steps:
+  - id: verify
+    text: Wait for the new rollout and inspect ready replicas
+  - id: repair
+    text: Correct the Deployment pod template image
+  - id: compare
+    text: Compare the Deployment image with the supplied approved image
+  - id: events
+    text: Inspect failing pod events
+- kind: exercise
+  id: oc-workloads.availability
+  revision: 1
+  type: single_choice
+  skill_ids: *id007
+  objective_ids:
+  - objective.oc-workloads
+  prompt: During an update, one old pod remains Ready while the new pod cannot pull its image. Is the
+    update complete?
+  hints:
+  - id: hint.reason
+    text: Availability can come from an older ReplicaSet.
+  source: *id008
+  assessment:
+    evaluator: choice.exact
+    evaluator_version: 1
+    completion_evidence: correct-response
+    feedback:
+    - criterion_id: criterion.availability
+      misconception_code: misconception.old-replica-is-new-rollout
+      explanation: An available old replica does not prove the latest revision succeeded. Verify observed
+        generation and updated, ready replicas for the new template.
+      reference_ids: *id009
+    correct_option_id: 'no'
+    reveal_markdown: An available old replica does not prove the latest revision succeeded. Verify observed
+      generation and updated, ready replicas for the new template.
+  options:
+  - id: 'no'
+    text: No; verify that the latest Deployment revision has completed
+  - id: 'yes'
+    text: Yes; any Ready pod proves the new revision works
+  - id: route
+    text: Yes, if a Route object exists
+- kind: exercise
+  id: oc-network.selector
+  revision: 1
+  type: single_choice
+  skill_ids: *id010
+  objective_ids:
+  - objective.oc-network
+  prompt: A Service selects app=web, but the ready application pod is labeled app=store. What explains
+    the missing backend?
+  hints:
+  - id: hint.reason
+    text: A Service selector must match pod labels.
+  source: *id011
+  assessment:
+    evaluator: choice.exact
+    evaluator_version: 1
+    completion_evidence: correct-response
+    feedback:
+    - criterion_id: criterion.selector
+      misconception_code: misconception.service-name-selects-pod
+      explanation: The selector and pod labels do not match. Names alone do not associate a Service with
+        a Deployment.
+      reference_ids: *id012
+    correct_option_id: selector
+    reveal_markdown: The selector and pod labels do not match. Names alone do not associate a Service
+      with a Deployment.
+  options:
+  - id: selector
+    text: The selector does not match the pod labels
+  - id: name
+    text: The Service must have the same name as the pod
+  - id: dns
+    text: The external hostname must be changed
+- kind: exercise
+  id: oc-network.request-path
+  revision: 1
+  type: command_order
+  skill_ids: *id010
+  objective_ids:
+  - objective.oc-network
+  prompt: Order a successful external request path for this edge-terminated lab.
+  hints:
+  - id: hint.reason
+    text: The ingress router resolves the Route before traffic reaches the application.
+  source: *id011
+  assessment:
+    evaluator: order.exact
+    evaluator_version: 1
+    completion_evidence: correct-response
+    feedback:
+    - criterion_id: criterion.request-path
+      misconception_code: misconception.route-bypasses-service
+      explanation: The client reaches the ingress router; the Route targets a Service, whose selected
+        ready backend receives traffic on the target port.
+      reference_ids: *id012
+    correct_order:
+    - router
+    - route
+    - service
+    - pod
+    reveal_markdown: The client reaches the ingress router; the Route targets a Service, whose selected
+      ready backend receives traffic on the target port.
+  steps:
+  - id: pod
+    text: Traffic reaches a selected ready application pod on its target port
+  - id: service
+    text: Route identifies the Service and its port
+  - id: route
+    text: Router matches the admitted Route
+  - id: router
+    text: Client connects to the ingress router using the Route host
+- kind: exercise
+  id: oc-network.inspect-service
+  revision: 1
+  type: command_entry
+  skill_ids: *id010
+  objective_ids:
+  - objective.oc-network
+  prompt: Inspect the web Service, including selector and port mapping. Use oc describe service with no
+    flags. Enter only the requested command; this exercise uses literal spelling and spacing, with leading/trailing
+    spaces ignored.
+  hints:
+  - id: hint.reason
+    text: Inspect the Service resource rather than the Deployment.
+  source: *id011
+  assessment:
+    evaluator: command.literal
+    evaluator_version: 1
+    completion_evidence: correct-response
+    feedback:
+    - criterion_id: criterion.inspect-service
+      misconception_code: misconception.port-name-is-listener
+      explanation: Check selector, Service port and target port against the workload. The container must
+        actually listen on the target port.
+      reference_ids: *id012
+    normalization: literal-command-v1
+    accepted_commands:
+    - oc describe service web
+    - oc describe svc web
+    reveal_markdown: Use `oc describe service web`. Check selector, Service port and target port against
+      the workload. The container must actually listen on the target port.
+- kind: exercise
+  id: oc-network.route-proof
+  revision: 1
+  type: single_choice
+  skill_ids: *id010
+  objective_ids:
+  - objective.oc-network
+  prompt: A Route object exists and the Deployment is healthy. What additional evidence demonstrates external
+    reachability?
+  hints:
+  - id: hint.reason
+    text: Resource existence is not an end-to-end request.
+  source: *id011
+  assessment:
+    evaluator: choice.exact
+    evaluator_version: 1
+    completion_evidence: correct-response
+    feedback:
+    - criterion_id: criterion.route-proof
+      misconception_code: misconception.route-exists-means-reachable
+      explanation: Check Route admission and perform an HTTPS request to its assigned host, verifying
+        the expected application response. A generic router error is not success.
+      reference_ids: *id012
+    correct_option_id: request
+    reveal_markdown: Check Route admission and perform an HTTPS request to its assigned host, verifying
+      the expected application response. A generic router error is not success.
+  options:
+  - id: request
+    text: Verify admission and the expected application response over HTTPS
+  - id: exists
+    text: The Route object alone proves reachability
+  - id: replicas
+    text: Increase replicas without testing the Route

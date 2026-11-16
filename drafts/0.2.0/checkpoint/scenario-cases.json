@@ -1,0 +1,150 @@
+{
+  "checkpoint_id": "checkpoint.oc-foundations",
+  "revision": 1,
+  "status": "specified-not-executed",
+  "cases": [
+    {
+      "id": "manifest-repair",
+      "scenario": "Apply the supplied manifest, expose the Service and edge Route; after the recorded fault reapply the approved manifest.",
+      "expected_outcome": "success",
+      "criteria": [
+        "context",
+        "deployment",
+        "service",
+        "route",
+        "response",
+        "repair"
+      ]
+    },
+    {
+      "id": "imperative-repair",
+      "scenario": "Reach the same initial state; after the recorded fault use oc set image to restore the approved digest and verify the later generation.",
+      "expected_outcome": "success",
+      "criteria": [
+        "context",
+        "deployment",
+        "service",
+        "route",
+        "response",
+        "repair"
+      ]
+    },
+    {
+      "id": "old-replica",
+      "scenario": "Leave the broken new image while an older ready replica still serves HTTP.",
+      "expected_outcome": "learner-mistake",
+      "criteria": [
+        "deployment",
+        "repair"
+      ]
+    },
+    {
+      "id": "wrong-selector",
+      "scenario": "Repair the rollout but change the Service selector so it selects no ready backend.",
+      "expected_outcome": "learner-mistake",
+      "criteria": [
+        "service",
+        "response"
+      ]
+    },
+    {
+      "id": "wrong-port",
+      "scenario": "Repair the rollout but target Service traffic to port 9090 where nothing listens.",
+      "expected_outcome": "learner-mistake",
+      "criteria": [
+        "service",
+        "response"
+      ]
+    },
+    {
+      "id": "wrong-route",
+      "scenario": "Point the Route at a different Service or another session host.",
+      "expected_outcome": "learner-mistake",
+      "criteria": [
+        "route",
+        "response"
+      ]
+    },
+    {
+      "id": "no-tls",
+      "scenario": "Use an unsecured Route rather than edge TLS with redirect.",
+      "expected_outcome": "learner-mistake",
+      "criteria": [
+        "route"
+      ]
+    },
+    {
+      "id": "fake-response",
+      "scenario": "Return a matching body from an unrelated workload while the target Deployment is broken.",
+      "expected_outcome": "learner-mistake",
+      "criteria": [
+        "deployment",
+        "service",
+        "repair"
+      ]
+    },
+    {
+      "id": "skipped-fault",
+      "scenario": "Show a healthy final state without trusted initial/fault-stage records.",
+      "expected_outcome": "incomplete",
+      "criteria": [
+        "repair"
+      ]
+    },
+    {
+      "id": "recreated-deployment",
+      "scenario": "Delete and recreate the Deployment after the fault; UID no longer matches its stage records.",
+      "expected_outcome": "incomplete",
+      "criteria": [
+        "repair"
+      ]
+    },
+    {
+      "id": "foreign-namespace",
+      "scenario": "Present matching names in a namespace outside the assigned session.",
+      "expected_outcome": "rejected",
+      "criteria": [
+        "context"
+      ]
+    },
+    {
+      "id": "stale-generation",
+      "scenario": "Deliver successful observations from the generation before reset.",
+      "expected_outcome": "rejected",
+      "criteria": [
+        "context",
+        "repair"
+      ]
+    },
+    {
+      "id": "registry-outage",
+      "scenario": "Approved-image pulls fail because the approved registry is unavailable.",
+      "expected_outcome": "infrastructure-error",
+      "criteria": []
+    },
+    {
+      "id": "router-outage",
+      "scenario": "The platform router is unavailable although the submitted resources are correct.",
+      "expected_outcome": "infrastructure-error",
+      "criteria": []
+    },
+    {
+      "id": "expired-access",
+      "scenario": "Credentials expire during assessment; do not interpret API authentication failure as missing learner resources.",
+      "expected_outcome": "infrastructure-error",
+      "criteria": []
+    },
+    {
+      "id": "reset",
+      "scenario": "Reset after partial repair; verify a clean new generation and rejection of all old pending results.",
+      "expected_outcome": "reset-verified",
+      "criteria": []
+    },
+    {
+      "id": "cleanup",
+      "scenario": "Expire the session; verify owned resources are absent while unrelated namespaces and shared protections remain.",
+      "expected_outcome": "cleanup-verified",
+      "criteria": []
+    }
+  ]
+}
