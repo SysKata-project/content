@@ -124,6 +124,14 @@ def build_validation(module):
 
         def healthy(self):
             self.rollout()
+            pods = self.get('get', 'pods', '-n', self.ns, '-l', 'app=web')['items']
+            self.check('restricted workload with assigned nonroot UID', bool(pods) and all(
+                p['metadata'].get('annotations', {}).get('openshift.io/scc') == 'restricted-v2'
+                and p['spec'].get('automountServiceAccountToken') is False
+                and all(c.get('securityContext', {}).get('runAsUser', 0) > 0
+                        and c.get('securityContext', {}).get('allowPrivilegeEscalation') is False
+                        and 'ALL' in c.get('securityContext', {}).get('capabilities', {}).get('drop', [])
+                        for c in p['spec']['containers']) for p in pods))
             self.check('Service links ready backend', self.wait_for(self.backend))
             self.check('edge Route admitted with assigned host', self.wait_for(self.route))
             self.check('TLS-verified expected HTTPS response', self.wait_for(self.response))
@@ -210,6 +218,10 @@ def build_validation(module):
                     self.patch('route', {'spec': {'to': {'kind': 'Service', 'name': 'missing'}}})
                     self.check('wrong Route backend rejected', not self.route())
                     self.patch('route', {'spec': {'to': {'kind': 'Service', 'name': 'web'}}})
+                    self.patch('route', {'spec': {'tls': None}})
+                    self.check('unsecured Route rejected', not self.route())
+                    self.patch('route', {'spec': {'tls': {'termination': 'edge',
+                                                        'insecureEdgeTerminationPolicy': 'Redirect'}}})
                     self.healthy()
                     # A resource-only reset proof, not API generation/result enforcement.
                     for kind in ['route', 'service', 'deployment']:
