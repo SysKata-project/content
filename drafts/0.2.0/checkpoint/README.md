@@ -2,7 +2,8 @@
 
 Stable ID: `checkpoint.oc-foundations`, revision 1. Draft for content #4.
 Estimated learner time: 20–25 minutes after the four foundations lessons.
-No runtime validation or production evaluator integration is claimed.
+See [runtime evidence](EVIDENCE.md) for the scoped curriculum proof.
+Production evaluator integration is not claimed.
 
 ## Learner task
 
@@ -105,15 +106,22 @@ stale generation results. Distinguish network errors from a verified NotFound.
 
 `scenario-cases.json` specifies positive, negative and alternate-solution scenarios
 for the production adapter in labs #3. These are scenario specifications, not
-fabricated cluster observations or a new executable evaluator. The compiler's
+a new executable evaluator.
+The [evidence matrix](EVIDENCE.md) distinguishes live-tested scenarios from
+offline checks and pending production integration. The compiler's
 production-lab release gate stays closed. The lesson-only draft compiles separately
 with `release_eligible: false`; it cannot unlock administration or claim checkpoint
 completion. Integrate this stable exercise into a versioned catalog only when its
 real adapter, profiles, fixtures and evidence validator are available.
 
 Before content #4 can be ready, record actual runtime version, source commit,
-image digest, evaluator version, each scenario result, route/body verification,
-failure/repair generations, reset isolation and verified cleanup. Keep credentials,
-hostnames tied to private allocations and raw kubeconfigs out of Git. Keep runtime
-`tested_versions` empty until that evidence exists. Source baseline remains 4.22;
+image digest, proof version, live scenario results, route/body verification,
+failure/repair generations, resource reset and verified cleanup. Per the
+[accepted review boundary](../DECISIONS.md), production evaluator versioning,
+API reset-generation enforcement and runtime result delivery remain activation
+gates in labs/API work. Distinguish live observations from offline assertions
+and unimplemented integration scenarios. Keep credentials,
+hostnames tied to private allocations and raw kubeconfigs out of Git. Runtime
+`tested_versions` now records the scoped proof on 4.22.22; it is not release
+approval. Source baseline remains 4.22;
 feasibility on 4.22.20 from 2026-11-06 is not checkpoint validation.

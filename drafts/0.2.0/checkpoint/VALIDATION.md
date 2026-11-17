@@ -3,8 +3,11 @@
 `scripts/validate_foundations.py` is an operator-triggered proof for the authored
 checkpoint. It is not the production lab evaluator, terminal gateway or lifecycle
 service. It does not release or activate content. Run the replacement-cluster
-feasibility checks first, then run this proof sequentially so the two-session
-allocation ceiling is respected.
+feasibility checks first. Normally run this proof after cleanup. If only token
+expiry remains, the completed second feasibility namespace may be ownership-checked
+and deleted before starting this one-namespace proof; retain the first namespace
+and its identity for the expiry test. Never exceed two concurrent namespaces.
+Both reports must pass, including cleanup, before accepting the runtime evidence.
 
 Use Python 3.13 with the content repository dependencies, `oc` and `curl` in PATH,
 and an authenticated private kubeconfig outside every checkout. Keep command

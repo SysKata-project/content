@@ -42,7 +42,7 @@ Use OpenShift as the initial path, aligned to public DO180 and DO280 objectives.
 ## Status and contribution
 
 The content schema, validation fixtures, YAML/Markdown compiler and immutable
-GitHub Release workflow are implemented. No curriculum bundle has been released. The OpenShift DO180/DO280 objective map and pilot prerequisites are documented. Namespace-scoped runtime feasibility was demonstrated on OpenShift 4.22.20; the lessons and checkpoints themselves are not yet validated. Open an issue with the target skill and intended learner outcome before proposing a learning path.
+GitHub Release workflow are implemented. No curriculum bundle has been released. The OpenShift DO180/DO280 objective map and pilot prerequisites are documented. Namespace-scoped runtime feasibility was demonstrated on OpenShift 4.22.20; four foundations lessons and a scoped checkpoint runtime proof are available in draft PR #13; production evaluator integration and curriculum release remain pending. Open an issue with the target skill and intended learner outcome before proposing a learning path.
 
 SysKata is independent and is not affiliated with or endorsed by Red Hat. Red Hat is a trademark of Red Hat, Inc.
 

@@ -31,7 +31,7 @@ entities:
   reviewed_on: '2026-11-16'
 - kind: journey
   id: journey.openshift
-  revision: 1
+  revision: 2
   title: 'OpenShift pilot: foundations draft'
   locale: en
   prerequisites: []
@@ -45,11 +45,12 @@ entities:
   runtime:
     product: openshift
     curriculum_version: '4.22'
-    tested_versions: []
+    tested_versions:
+    - 4.22.22
     requirements:
     - Bash basics and container image/process concepts
     - Assigned project and scoped expiring learner identity; no cluster-admin
-    - OpenShift 4.22 checkpoint runtime validation pending
+    - Foundations curriculum proof on 4.22.22; production lab integration pending
 - kind: unit
   id: unit.oc-foundations
   revision: 1

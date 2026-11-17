@@ -21,7 +21,9 @@ Command exercises explicitly describe their literal matching limits.
 [workload](checkpoint/web.yaml), operator-only [fault patch](checkpoint/fault.patch.yaml)
 and [scenario specifications](checkpoint/scenario-cases.json), including manifest
 and imperative repair paths, wrong selectors/ports, stale evidence, infrastructure
-failure, reset and cleanup. The scenarios have **not** been executed on a cluster.
+failure, reset and cleanup. The [runtime evidence matrix](checkpoint/EVIDENCE.md)
+records 78 live checks on OpenShift 4.22.22 and distinguishes tested scenarios
+from pending integration.
 
 ## Compile and validate
 
@@ -47,23 +49,23 @@ Do not publish or activate this partial journey or use it to unlock administrati
 Local verification on 2026-11-16: 33 unit tests passed; the draft's 16 exercise
 fixture sets passed schema/graph/evaluator compilation; all four official
 `enterprise-4.22` documentation-source URLs returned HTTP 200 with TLS verification.
-These source links use the accepted 4.22 baseline. They do not establish runtime
-compatibility. `tested_versions` remains empty.
+These source links use the accepted 4.22 baseline. Separate runtime proof on
+2026-11-17 established the bounded foundations operations on 4.22.22; it does not
+establish production evaluator or lifecycle compatibility. The suite now has
+36 passing tests, including proof-evidence rejection cases.
 
-Content #4 cannot be marked ready or closed yet:
+The [accepted scope decision](DECISIONS.md) separates content review from
+production activation. After a passing scoped-identity runtime proof, content #4
+can enter review. These production requirements remain gated on later integration:
 
-- Obtain access to the supported OpenShift allocation and run the checkpoint
-  scenarios as the actual scoped learner, including alternate repair, reset and
-  cleanup. The previous temporary kubeconfig was unavailable in this session.
-- Integrate the required scoped reads and lifecycle protection through
-  [labs #2](https://github.com/SysKata-project/labs/issues/2); the feasibility
-  role alone is insufficient for all authored diagnosis commands.
+- Integrate the scoped diagnostic reads and lifecycle protections through
+  [labs #2](https://github.com/SysKata-project/labs/issues/2).
 - Integrate a production checkpoint adapter, profiles and evidence validation
   through [labs #3](https://github.com/SysKata-project/labs/issues/3), then represent
-  the checkpoint as a real versioned lab exercise and compile the complete content.
+  the checkpoint as a real versioned lab exercise in the complete compiled catalog.
 - Verify API progression cannot bypass trusted checkpoint A success before
-  `oc-declarative`, as required by the accepted journey map.
+  `oc-declarative`, including stale results and reward deduplication.
 
-These are unresolved acceptance/integration work, not waived requirements. The
-existing compiler release gate remains unchanged. Runtime evidence, final review,
-approval and merge are still required; no curriculum release has been published.
+Those gates prevent activation; they do not create a circular prerequisite for
+this authored-content issue. Final review, approval and merge remain required.
+No curriculum release has been published.
