@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: exercise-budget
+spec:
+  hard:
+    pods: "1"

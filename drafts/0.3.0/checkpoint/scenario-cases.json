@@ -1,0 +1,85 @@
+{
+  "checkpoint_id": "checkpoint.oc-administration",
+  "revision": 1,
+  "status": "specified-not-executed",
+  "cases": [
+    {
+      "id": "manifest",
+      "scenario": "Apply the supplied Deployment and verify latest observed generation, desired fields and one updated ready replica.",
+      "expected_outcome": "success",
+      "validation_scope": "live-proof"
+    },
+    {
+      "id": "split-role",
+      "scenario": "Grant get/list through separate Role rules with the same subject and verify effective access.",
+      "expected_outcome": "success",
+      "validation_scope": "live-proof"
+    },
+    {
+      "id": "wrong-label",
+      "scenario": "Change the required pod template label.",
+      "expected_outcome": "learner-mistake",
+      "validation_scope": "live-proof"
+    },
+    {
+      "id": "wrong-subject",
+      "scenario": "Bind the reader role to a different identity.",
+      "expected_outcome": "learner-mistake",
+      "validation_scope": "live-proof"
+    },
+    {
+      "id": "overbroad-role",
+      "scenario": "Add delete pods to the supplied reader grant.",
+      "expected_outcome": "learner-mistake",
+      "validation_scope": "live-proof"
+    },
+    {
+      "id": "quota-two",
+      "scenario": "Configure an exercise limit of two pods.",
+      "expected_outcome": "learner-mistake",
+      "validation_scope": "live-proof"
+    },
+    {
+      "id": "quota-denial",
+      "scenario": "Create a second valid pod and require exercise-budget admission rejection.",
+      "expected_outcome": "success",
+      "validation_scope": "live-proof"
+    },
+    {
+      "id": "escape",
+      "scenario": "Attempt a cluster-admin binding or outer quota mutation.",
+      "expected_outcome": "denied",
+      "validation_scope": "live-proof"
+    },
+    {
+      "id": "reset",
+      "scenario": "Remove exercise resources, revoke reader access, retain outer ceiling, and repeat.",
+      "expected_outcome": "success",
+      "validation_scope": "live-proof"
+    },
+    {
+      "id": "stale-generation",
+      "scenario": "Deliver pre-reset assessment after a new session generation.",
+      "expected_outcome": "rejected-stale",
+      "validation_scope": "production-integration"
+    },
+    {
+      "id": "replay",
+      "scenario": "Deliver a successful assessment twice.",
+      "expected_outcome": "single-reward",
+      "validation_scope": "production-integration"
+    },
+    {
+      "id": "infrastructure",
+      "scenario": "API unavailable or supplied credential expired.",
+      "expected_outcome": "infrastructure-error",
+      "validation_scope": "offline-classification"
+    },
+    {
+      "id": "skip-checkpoint-a",
+      "scenario": "Attempt to unlock administration without trusted checkpoint A.",
+      "expected_outcome": "locked",
+      "validation_scope": "production-integration"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: exercise-reader
+subjects:
+  - kind: ServiceAccount
+    name: supplied-reader
+    namespace: REPLACE_WITH_ASSIGNED_PROJECT
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: exercise-reader
