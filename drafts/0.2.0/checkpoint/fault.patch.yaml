@@ -1,0 +1,8 @@
+# Operator-only strategic merge patch, after trusted initial-success evidence.
+# Apply to the recorded Deployment UID in the assigned namespace only.
+spec:
+  template:
+    spec:
+      containers:
+        - name: web
+          image: registry.invalid/syskata/deliberate-rollout-fault:v1

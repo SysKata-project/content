@@ -123,7 +123,11 @@ learner-selectable activity.
 In the objective map, **pilot** means selected for authoring, **planned** means
 outside the bounded pilot, and **validated** requires evidence for the actual
 lesson/checkpoint at its released content/evaluator version and tested runtime.
-No row is currently validated. Runtime feasibility alone cannot change that.
+No row is currently release-validated. Runtime feasibility alone cannot change that.
+The [foundations draft proof](../drafts/0.2.0/checkpoint/EVIDENCE.md) records scoped
+curriculum checks on 4.22.22, separately from production evaluator integration.
+The [2026-11-17 owner decision](../drafts/0.2.0/DECISIONS.md) permits content review
+with that proof while retaining production activation gates.
 Each release must link its assessment fixtures, runtime report and bundle version;
 keep runtime `tested_versions` empty until the corresponding content is tested.
 

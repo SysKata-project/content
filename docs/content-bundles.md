@@ -16,6 +16,12 @@ Dates remain ISO strings. Markdown is carried as text, never executed or rendere
 by this compiler. Clients must render it safely. See the executable
 [authoring example](../fixtures/authoring/catalog.yaml).
 
+For unreleased work, use `drafts/<bundle-version>/catalog.yaml`, Markdown files
+and `assessment-cases.json`. CI compiles drafts with release mode disabled and
+checks their reference URLs. Draft artifacts are not eligible for API activation;
+passing draft validation does not establish checkpoint/runtime readiness. Move
+reviewed, fully validated sources into `releases/` only when release gates pass.
+
 For a release, add `releases/<bundle-version>/catalog.yaml`, its Markdown files,
 and `assessment-cases.json` in a reviewed PR. Commit every input, including prose.
 The cases map each exercise ID to `{ "answer": ..., "expected": true/false }`

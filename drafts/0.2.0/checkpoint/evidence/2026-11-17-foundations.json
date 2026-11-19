@@ -1,0 +1,353 @@
+{
+  "run_id": "sk-feas-10d8e358cf",
+  "started_utc": "2026-11-17T16:38:52.784891+00:00",
+  "image": "registry.access.redhat.com/ubi9/python-312@sha256:2e0c178f11ae69bc65cad2352c0832aadbc57d429e0160929ec436d6ba9b4e78",
+  "concurrency": 1,
+  "checks": [
+    {
+      "check": "curriculum minor version compatible",
+      "passed": true
+    },
+    {
+      "check": "learner denied get secrets",
+      "passed": true
+    },
+    {
+      "check": "learner denied get nodes",
+      "passed": true
+    },
+    {
+      "check": "learner denied create serviceaccounts/token",
+      "passed": true
+    },
+    {
+      "check": "learner denied patch networkpolicies",
+      "passed": true
+    },
+    {
+      "check": "learner denied patch resourcequotas/outer-budget",
+      "passed": true
+    },
+    {
+      "check": "foreign namespace access rejected",
+      "passed": true
+    },
+    {
+      "check": "learner applies supplied workload",
+      "passed": true
+    },
+    {
+      "check": "learner exposes deployment",
+      "passed": true
+    },
+    {
+      "check": "learner creates edge Route",
+      "passed": true
+    },
+    {
+      "check": "learner rollout status",
+      "passed": true
+    },
+    {
+      "check": "latest rollout fully ready",
+      "passed": true
+    },
+    {
+      "check": "restricted workload with assigned nonroot UID",
+      "passed": true
+    },
+    {
+      "check": "Service links ready backend",
+      "passed": true
+    },
+    {
+      "check": "edge Route admitted with assigned host",
+      "passed": true
+    },
+    {
+      "check": "TLS-verified expected HTTPS response",
+      "passed": true
+    },
+    {
+      "check": "operator injects controlled image fault",
+      "passed": true
+    },
+    {
+      "check": "controlled image pull failure observed",
+      "passed": true
+    },
+    {
+      "check": "old replica cannot prove repaired rollout",
+      "passed": true
+    },
+    {
+      "check": "learner reads pod events",
+      "passed": true
+    },
+    {
+      "check": "learner describes failing pod",
+      "passed": true
+    },
+    {
+      "check": "learner sees image failure diagnosis",
+      "passed": true
+    },
+    {
+      "check": "manifest image repair",
+      "passed": true
+    },
+    {
+      "check": "learner rollout status",
+      "passed": true
+    },
+    {
+      "check": "latest rollout fully ready",
+      "passed": true
+    },
+    {
+      "check": "restricted workload with assigned nonroot UID",
+      "passed": true
+    },
+    {
+      "check": "Service links ready backend",
+      "passed": true
+    },
+    {
+      "check": "edge Route admitted with assigned host",
+      "passed": true
+    },
+    {
+      "check": "TLS-verified expected HTTPS response",
+      "passed": true
+    },
+    {
+      "check": "trusted UID and generation repair sequence",
+      "passed": true,
+      "method": "manifest",
+      "generations": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "check": "patch service",
+      "passed": true
+    },
+    {
+      "check": "wrong selector rejected",
+      "passed": true
+    },
+    {
+      "check": "patch service",
+      "passed": true
+    },
+    {
+      "check": "patch service",
+      "passed": true
+    },
+    {
+      "check": "wrong target port rejected",
+      "passed": true
+    },
+    {
+      "check": "patch service",
+      "passed": true
+    },
+    {
+      "check": "patch route",
+      "passed": true
+    },
+    {
+      "check": "wrong Route backend rejected",
+      "passed": true
+    },
+    {
+      "check": "patch route",
+      "passed": true
+    },
+    {
+      "check": "patch route",
+      "passed": true
+    },
+    {
+      "check": "unsecured Route rejected",
+      "passed": true
+    },
+    {
+      "check": "patch route",
+      "passed": true
+    },
+    {
+      "check": "learner rollout status",
+      "passed": true
+    },
+    {
+      "check": "latest rollout fully ready",
+      "passed": true
+    },
+    {
+      "check": "restricted workload with assigned nonroot UID",
+      "passed": true
+    },
+    {
+      "check": "Service links ready backend",
+      "passed": true
+    },
+    {
+      "check": "edge Route admitted with assigned host",
+      "passed": true
+    },
+    {
+      "check": "TLS-verified expected HTTPS response",
+      "passed": true
+    },
+    {
+      "check": "reset deletes owned route",
+      "passed": true
+    },
+    {
+      "check": "reset confirms absent route",
+      "passed": true
+    },
+    {
+      "check": "reset deletes owned service",
+      "passed": true
+    },
+    {
+      "check": "reset confirms absent service",
+      "passed": true
+    },
+    {
+      "check": "reset deletes owned deployment",
+      "passed": true
+    },
+    {
+      "check": "reset confirms absent deployment",
+      "passed": true
+    },
+    {
+      "check": "reset preserves operator quota",
+      "passed": true
+    },
+    {
+      "check": "learner applies supplied workload",
+      "passed": true
+    },
+    {
+      "check": "learner exposes deployment",
+      "passed": true
+    },
+    {
+      "check": "learner creates edge Route",
+      "passed": true
+    },
+    {
+      "check": "learner rollout status",
+      "passed": true
+    },
+    {
+      "check": "latest rollout fully ready",
+      "passed": true
+    },
+    {
+      "check": "restricted workload with assigned nonroot UID",
+      "passed": true
+    },
+    {
+      "check": "Service links ready backend",
+      "passed": true
+    },
+    {
+      "check": "edge Route admitted with assigned host",
+      "passed": true
+    },
+    {
+      "check": "TLS-verified expected HTTPS response",
+      "passed": true
+    },
+    {
+      "check": "operator injects controlled image fault",
+      "passed": true
+    },
+    {
+      "check": "controlled image pull failure observed",
+      "passed": true
+    },
+    {
+      "check": "old replica cannot prove repaired rollout",
+      "passed": true
+    },
+    {
+      "check": "learner reads pod events",
+      "passed": true
+    },
+    {
+      "check": "learner describes failing pod",
+      "passed": true
+    },
+    {
+      "check": "learner sees image failure diagnosis",
+      "passed": true
+    },
+    {
+      "check": "alternate imperative image repair",
+      "passed": true
+    },
+    {
+      "check": "learner rollout status",
+      "passed": true
+    },
+    {
+      "check": "latest rollout fully ready",
+      "passed": true
+    },
+    {
+      "check": "restricted workload with assigned nonroot UID",
+      "passed": true
+    },
+    {
+      "check": "Service links ready backend",
+      "passed": true
+    },
+    {
+      "check": "edge Route admitted with assigned host",
+      "passed": true
+    },
+    {
+      "check": "TLS-verified expected HTTPS response",
+      "passed": true
+    },
+    {
+      "check": "trusted UID and generation repair sequence",
+      "passed": true,
+      "method": "imperative",
+      "generations": [
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "checkpoint_id": "checkpoint.oc-foundations",
+  "content_revision": 1,
+  "proof_version": 1,
+  "production_evaluator": false,
+  "feasibility_sha256": "53fdfe51dcb658265c60e001827e5db01df0c7b068180ca9635568c2edac9534",
+  "source_commit": "a2024bfc314563210479574f31653fe748388d8e",
+  "inputs_sha256": {
+    "scripts/validate_foundations.py": "15a52c58416a71bfc49003afbe37a7502497e656702341d91b30fb6aa648f2d1",
+    "drafts/0.2.0/checkpoint/fault.patch.yaml": "fd06de813b4fafe8e6cce2cb21f8b9bf9ebeec1dd7720c11f6576062f69789ba",
+    "drafts/0.2.0/checkpoint/web.yaml": "94ba27cbc8d926c75cd50550c6e2301124928e0159041a971b217296ef52a804"
+  },
+  "openshift_version": "4.22.22",
+  "limitations": [
+    "Not a production evaluator or lifecycle service",
+    "API stale-result, reward deduplication, progression and TTL enforcement not tested",
+    "No simulated outage is counted as live infrastructure-error handling",
+    "Temporary scoped diagnostic permissions; labs #2 integration pending"
+  ],
+  "validation_passed": true,
+  "cleanup_passed": true,
+  "finished_utc": "2026-11-17T16:40:23.219882+00:00"
+}
