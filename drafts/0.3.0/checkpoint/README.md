@@ -5,9 +5,10 @@ Prerequisites: all seven pilot lessons through `oc-budgets`, trusted checkpoint 
 success, YAML editing and authentication/authorization basics. This is original
 SysKata material, a bounded DO280-aligned subset, not full course coverage.
 
-Status: specified with an operator proof harness; live validation pending. No
-production evaluator or curriculum release is claimed. See [validation](VALIDATION.md)
-and [scenario cases](scenario-cases.json).
+Status: scoped runtime proof passed 102 checks on OpenShift 4.22.22 with verified
+cleanup. No production evaluator or curriculum release is claimed. See
+[evidence](EVIDENCE.md), [reproduction](VALIDATION.md) and the original pre-run
+[scenario specification](scenario-cases.json).
 
 ## Learner task and observable criteria
 

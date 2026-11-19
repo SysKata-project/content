@@ -1,15 +1,19 @@
 # Administration proof validation
 
-Live status: **pending**. On 2026-11-19 the existing private kubeconfig could not
-resolve the configured API hostname (DNS failure). No runtime version, passing checkpoint result or cleanup result is
-claimed for this draft. A replacement authenticated private kubeconfig is needed.
+The earlier cluster had an unresolvable API hostname. On 2026-11-19 the owner
+supplied a replacement workshops allocation and explicitly authorized the temporary
+TLS exception recorded in [DECISIONS.md](../DECISIONS.md). Authentication initially
+returned 401, then succeeded on retry with the owner-confirmed claim credentials.
+Those connection attempts did not run curriculum tests. See [recorded evidence](EVIDENCE.md)
+for completed runtime results and the remaining production integration boundary.
 
-From the content repository, run against the agreed ephemeral test cluster:
+From the content repository, run against the agreed ephemeral test cluster, with
+`oc` available on PATH:
 
 ```sh
 .venv/bin/python scripts/validate_administration.py \
   --feasibility-harness ../labs/scripts/validate-openshift.py \
-  --kubeconfig /private/tmp/syskata-private/cluster.kubeconfig \
+  --kubeconfig /private/tmp/syskata-private/administration.kubeconfig \
   --report /private/tmp/syskata-private/administration-report.json
 ```
 

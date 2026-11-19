@@ -21,9 +21,11 @@ unchanged. Preserve the 2026-11-04 curriculum source baseline, separate from the
 new reference review date and any actual runtime version.
 
 [Checkpoint B](checkpoint/README.md) specifies setup, reset, scoped identities,
-manifest/RBAC/quota criteria and alternate-valid/negative scenarios. Its live
-proof remains [pending](checkpoint/VALIDATION.md). `tested_versions` is empty for
-this combined draft; foundations-only evidence does not validate administration.
+manifest/RBAC/quota criteria and alternate-valid/negative scenarios. Its
+[live evidence](checkpoint/EVIDENCE.md) records 102 administration checks on
+OpenShift 4.22.22, plus 33 replacement-cluster feasibility checks and verified
+cleanup. `tested_versions` records 4.22.22 for this bounded curriculum proof;
+production integration remains unverified.
 
 ## Validate and compile
 
@@ -43,13 +45,15 @@ adapter. Production integration must enforce trusted checkpoint A before
 
 The [owner decision](DECISIONS.md) allows review after authored-content checks
 and live scoped-identity proof; it defers production integration to labs #3.
-Local tests passing alone do not satisfy the live proof requirement.
+The scoped live proof satisfies the runtime portion of that boundary. Final
+review, approval and merge remain required; no issue completion is claimed.
 
 ## Recorded local validation
 
-On 2026-11-19: all 40 unit tests passed, including all 28 exercise fixture sets,
+On 2026-11-19: all 41 unit tests passed, including all 28 exercise fixture sets,
 answer separation, manifest evidence and quota/error classification. Schema fixture,
 Python syntax, local Markdown links, whitespace and secret scans passed. All catalog
 reference checks passed with TLS verification using `SSL_CERT_FILE=/etc/ssl/cert.pem`
-after a transient HTTP 503 retry. Live
-checkpoint execution remains blocked by test-cluster API DNS resolution.
+after a transient HTTP 503 retry. Replacement-cluster feasibility and administration
+proofs both passed with verified cleanup; see the evidence report for tested scope
+and the earlier connection/PATH failures. Evidence fingerprints are regression-tested.

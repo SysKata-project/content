@@ -46,12 +46,13 @@ entities:
   runtime:
     product: openshift
     curriculum_version: '4.22'
-    tested_versions: []
+    tested_versions:
+    - 4.22.22
     requirements:
     - Foundations lessons and trusted checkpoint A success before administration
     - Bash, container and YAML editing prerequisites
     - Scoped expiring identity; production evaluator integration pending
-    - Administration runtime proof pending; not released
+    - Administration curriculum proof on 4.22.22; not released
 - kind: unit
   id: unit.oc-foundations
   revision: 1

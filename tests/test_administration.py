@@ -1,5 +1,6 @@
 from copy import deepcopy
 import json
+import hashlib
 from pathlib import Path
 from subprocess import CompletedProcess
 import unittest
@@ -14,6 +15,17 @@ DRAFT = ROOT / 'drafts/0.3.0'
 
 
 class AdministrationTests(unittest.TestCase):
+    def test_recorded_proof_matches_current_inputs(self):
+        report = json.loads((DRAFT / 'checkpoint/evidence/2026-11-19-administration.json').read_text())
+        self.assertTrue(report['validation_passed'])
+        self.assertTrue(report['cleanup_passed'])
+        self.assertEqual(102, len(report['checks']))
+        self.assertTrue(all(check['passed'] for check in report['checks']))
+        self.assertFalse(report['production_evaluator'])
+        for name, digest in report['inputs_sha256'].items():
+            with self.subTest(input=name):
+                self.assertEqual(digest, hashlib.sha256((ROOT / name).read_bytes()).hexdigest())
+
     def test_complete_draft_compiles_without_answer_leakage(self):
         catalog = load_source(DRAFT / 'catalog.yaml')
         cases = json.loads((DRAFT / 'assessment-cases.json').read_text())

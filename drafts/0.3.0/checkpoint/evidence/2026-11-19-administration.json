@@ -1,0 +1,441 @@
+{
+  "run_id": "sk-feas-c36b16b11d",
+  "started_utc": "2026-11-19T18:41:02.331240+00:00",
+  "image": "registry.access.redhat.com/ubi9/python-312@sha256:2e0c178f11ae69bc65cad2352c0832aadbc57d429e0160929ec436d6ba9b4e78",
+  "concurrency": 1,
+  "checks": [
+    {
+      "check": "curriculum minor version compatible",
+      "passed": true
+    },
+    {
+      "check": "learner denied get secrets",
+      "passed": true
+    },
+    {
+      "check": "learner denied get nodes",
+      "passed": true
+    },
+    {
+      "check": "learner denied create serviceaccounts/token",
+      "passed": true
+    },
+    {
+      "check": "learner denied patch networkpolicies",
+      "passed": true
+    },
+    {
+      "check": "learner denied patch resourcequotas/outer-budget",
+      "passed": true
+    },
+    {
+      "check": "learner denied impersonate users",
+      "passed": true
+    },
+    {
+      "check": "learner denied escalate roles",
+      "passed": true
+    },
+    {
+      "check": "learner denied cross-project read",
+      "passed": true
+    },
+    {
+      "check": "unbound supplied identity denied pod read",
+      "passed": true
+    },
+    {
+      "check": "learner applies Deployment",
+      "passed": true
+    },
+    {
+      "check": "learner observes rollout",
+      "passed": true
+    },
+    {
+      "check": "manifest desired and observed state",
+      "passed": true
+    },
+    {
+      "check": "learner applies Deployment",
+      "passed": true
+    },
+    {
+      "check": "reapply preserves workload identity",
+      "passed": true
+    },
+    {
+      "check": "learner applies Deployment",
+      "passed": true
+    },
+    {
+      "check": "wrong declared label rejected",
+      "passed": true
+    },
+    {
+      "check": "learner applies Deployment",
+      "passed": true
+    },
+    {
+      "check": "correct manifest restored",
+      "passed": true
+    },
+    {
+      "check": "learner applies Role",
+      "passed": true
+    },
+    {
+      "check": "learner applies RoleBinding",
+      "passed": true
+    },
+    {
+      "check": "wrong subject does not grant supplied identity access",
+      "passed": true
+    },
+    {
+      "check": "learner applies RoleBinding",
+      "passed": true
+    },
+    {
+      "check": "supplied identity gains pod list",
+      "passed": true
+    },
+    {
+      "check": "supplied identity can get named pod",
+      "passed": true
+    },
+    {
+      "check": "supplied identity denied pod deletion",
+      "passed": true
+    },
+    {
+      "check": "supplied identity denied secret read",
+      "passed": true
+    },
+    {
+      "check": "supplied identity denied foreign pod read",
+      "passed": true
+    },
+    {
+      "check": "learner applies Role",
+      "passed": true
+    },
+    {
+      "check": "overbroad grant detected",
+      "passed": true
+    },
+    {
+      "check": "learner applies Role",
+      "passed": true
+    },
+    {
+      "check": "delete grant removed",
+      "passed": true
+    },
+    {
+      "check": "supplied identity denied pod deletion",
+      "passed": true
+    },
+    {
+      "check": "supplied identity denied secret read",
+      "passed": true
+    },
+    {
+      "check": "supplied identity denied foreign pod read",
+      "passed": true
+    },
+    {
+      "check": "cluster-admin binding rejected",
+      "passed": true
+    },
+    {
+      "check": "learner applies ResourceQuota",
+      "passed": true
+    },
+    {
+      "check": "exercise quota accounted one pod",
+      "passed": true
+    },
+    {
+      "check": "second pod rejected by exercise quota",
+      "passed": true
+    },
+    {
+      "check": "learner applies ResourceQuota",
+      "passed": true
+    },
+    {
+      "check": "too-large exercise quota rejected",
+      "passed": true
+    },
+    {
+      "check": "learner applies ResourceQuota",
+      "passed": true
+    },
+    {
+      "check": "restored quota accounted",
+      "passed": true
+    },
+    {
+      "check": "outer quota mutation rejected",
+      "passed": true
+    },
+    {
+      "check": "outer quota unchanged",
+      "passed": true
+    },
+    {
+      "check": "reset deletes resourcequota",
+      "passed": true
+    },
+    {
+      "check": "reset confirms absence of resourcequota",
+      "passed": true
+    },
+    {
+      "check": "reset deletes rolebinding",
+      "passed": true
+    },
+    {
+      "check": "reset confirms absence of rolebinding",
+      "passed": true
+    },
+    {
+      "check": "reset deletes role",
+      "passed": true
+    },
+    {
+      "check": "reset confirms absence of role",
+      "passed": true
+    },
+    {
+      "check": "reset deletes deployment",
+      "passed": true
+    },
+    {
+      "check": "reset confirms absence of deployment",
+      "passed": true
+    },
+    {
+      "check": "reset removes workload pods",
+      "passed": true
+    },
+    {
+      "check": "reset revokes supplied reader access",
+      "passed": true
+    },
+    {
+      "check": "reset retains outer ceiling",
+      "passed": true
+    },
+    {
+      "check": "learner applies Deployment",
+      "passed": true
+    },
+    {
+      "check": "learner observes rollout",
+      "passed": true
+    },
+    {
+      "check": "manifest desired and observed state",
+      "passed": true
+    },
+    {
+      "check": "learner applies Deployment",
+      "passed": true
+    },
+    {
+      "check": "reapply preserves workload identity",
+      "passed": true
+    },
+    {
+      "check": "learner applies Deployment",
+      "passed": true
+    },
+    {
+      "check": "wrong declared label rejected",
+      "passed": true
+    },
+    {
+      "check": "learner applies Deployment",
+      "passed": true
+    },
+    {
+      "check": "correct manifest restored",
+      "passed": true
+    },
+    {
+      "check": "learner applies Role",
+      "passed": true
+    },
+    {
+      "check": "learner applies RoleBinding",
+      "passed": true
+    },
+    {
+      "check": "wrong subject does not grant supplied identity access",
+      "passed": true
+    },
+    {
+      "check": "learner applies RoleBinding",
+      "passed": true
+    },
+    {
+      "check": "supplied identity gains pod list",
+      "passed": true
+    },
+    {
+      "check": "supplied identity can get named pod",
+      "passed": true
+    },
+    {
+      "check": "supplied identity denied pod deletion",
+      "passed": true
+    },
+    {
+      "check": "supplied identity denied secret read",
+      "passed": true
+    },
+    {
+      "check": "supplied identity denied foreign pod read",
+      "passed": true
+    },
+    {
+      "check": "learner applies Role",
+      "passed": true
+    },
+    {
+      "check": "overbroad grant detected",
+      "passed": true
+    },
+    {
+      "check": "learner applies Role",
+      "passed": true
+    },
+    {
+      "check": "delete grant removed",
+      "passed": true
+    },
+    {
+      "check": "supplied identity denied pod deletion",
+      "passed": true
+    },
+    {
+      "check": "supplied identity denied secret read",
+      "passed": true
+    },
+    {
+      "check": "supplied identity denied foreign pod read",
+      "passed": true
+    },
+    {
+      "check": "cluster-admin binding rejected",
+      "passed": true
+    },
+    {
+      "check": "learner applies ResourceQuota",
+      "passed": true
+    },
+    {
+      "check": "exercise quota accounted one pod",
+      "passed": true
+    },
+    {
+      "check": "second pod rejected by exercise quota",
+      "passed": true
+    },
+    {
+      "check": "learner applies ResourceQuota",
+      "passed": true
+    },
+    {
+      "check": "too-large exercise quota rejected",
+      "passed": true
+    },
+    {
+      "check": "learner applies ResourceQuota",
+      "passed": true
+    },
+    {
+      "check": "restored quota accounted",
+      "passed": true
+    },
+    {
+      "check": "outer quota mutation rejected",
+      "passed": true
+    },
+    {
+      "check": "outer quota unchanged",
+      "passed": true
+    },
+    {
+      "check": "reset deletes resourcequota",
+      "passed": true
+    },
+    {
+      "check": "reset confirms absence of resourcequota",
+      "passed": true
+    },
+    {
+      "check": "reset deletes rolebinding",
+      "passed": true
+    },
+    {
+      "check": "reset confirms absence of rolebinding",
+      "passed": true
+    },
+    {
+      "check": "reset deletes role",
+      "passed": true
+    },
+    {
+      "check": "reset confirms absence of role",
+      "passed": true
+    },
+    {
+      "check": "reset deletes deployment",
+      "passed": true
+    },
+    {
+      "check": "reset confirms absence of deployment",
+      "passed": true
+    },
+    {
+      "check": "reset removes workload pods",
+      "passed": true
+    },
+    {
+      "check": "reset revokes supplied reader access",
+      "passed": true
+    },
+    {
+      "check": "reset retains outer ceiling",
+      "passed": true
+    }
+  ],
+  "checkpoint_id": "checkpoint.oc-administration",
+  "content_revision": 1,
+  "proof_version": 1,
+  "production_evaluator": false,
+  "feasibility_sha256": "53fdfe51dcb658265c60e001827e5db01df0c7b068180ca9635568c2edac9534",
+  "source_commit": "c5ba3da544dbfd9608fca460b1a1704e8c6b175d",
+  "inputs_sha256": {
+    "scripts/validate_administration.py": "1beb50bf183dfd241e0d518118569d08c153bf3da93e5ca2b03ed72c18984f97",
+    "scripts/validate_foundations.py": "15a52c58416a71bfc49003afbe37a7502497e656702341d91b30fb6aa648f2d1",
+    "drafts/0.3.0/checkpoint/exercise-budget.yaml": "a57b5e3f6db3fe32e69718c0d34f76c035abdc2ec634b17b6d8c81b947c87497",
+    "drafts/0.3.0/checkpoint/reader-binding.yaml": "9876ced205faf887072556fc0cb7702dd8791593c5cf44d666db2eeec76b087f",
+    "drafts/0.3.0/checkpoint/reader-role.yaml": "fc1e5a30294253c5db8c706d20b9d57de6f8ae61a9eb942539276789345c6512",
+    "drafts/0.3.0/checkpoint/web.yaml": "868946eac99308a455b480077a88baddd91b273faa32debf5ed379d6970265b1",
+    "drafts/0.3.0/checkpoint/scenario-cases.json": "8fb5a1f3fdf290625d58bd0100e13887dad0aeb774ec6549f5c16372c85af9ca"
+  },
+  "openshift_version": "4.22.22",
+  "limitations": [
+    "Scoped curriculum proof, not production evaluator or lifecycle integration",
+    "API generation, reward deduplication, checkpoint unlock and TTL enforcement not tested",
+    "Infrastructure failure classification tested offline only",
+    "Replacement cluster must also pass the full feasibility isolation proof"
+  ],
+  "validation_passed": true,
+  "cleanup_passed": true,
+  "finished_utc": "2026-11-19T18:43:55.574206+00:00"
+}

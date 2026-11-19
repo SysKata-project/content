@@ -11,3 +11,12 @@ contracts until production adapters and API progression are integrated. No fixtu
 lab evaluator substitutes for a real checkpoint. Production lifecycle and scoped
 roles remain with labs #2. Keep checkpoint A as a trusted prerequisite of
 `oc-declarative` and checkpoint B as a trusted prerequisite of pilot completion.
+
+## Replacement test cluster
+
+On 2026-11-19 the owner supplied a replacement ephemeral workshops allocation
+and explicitly allowed the temporary TLS-verification exception for that cluster.
+The exception applies only to this disposable proof's API connection and the
+feasibility harness's test Routes. It is not a production TLS policy. Credentials
+and kubeconfig remain outside Git. Keep the previously accepted two-session
+ceiling and $0 incremental-cost scope; provision no additional infrastructure.
